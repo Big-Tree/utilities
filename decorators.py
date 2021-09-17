@@ -5,8 +5,8 @@ from icecream import ic
 
 
 def frozen(cla):
-    """A class decorator that freezes the class.  An error is raised if an attribute is assigned outside
-    of __init__
+    """A class decorator that freezes the class.  An error is raised if an attribute is assigned
+    outside of __init__
     """
     cla.__frozen = False
     def frozen_setattr(self, key, value):
