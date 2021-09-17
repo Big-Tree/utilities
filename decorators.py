@@ -5,9 +5,9 @@ from icecream import ic
 
 
 def frozen(cla):
-"""A class decorator that freezes the class.  An error is raised if an attribute is assigned outside
-of __init__
-"""
+    """A class decorator that freezes the class.  An error is raised if an attribute is assigned outside
+    of __init__
+    """
     cla.__frozen = False
     def frozen_setattr(self, key, value):
         if self.__frozen and not hasattr(self, key):
@@ -26,15 +26,16 @@ of __init__
     return cla
 
 
-# Example use case
-@frozen
-class data():
-    def __init__(self):
-        self.x = [1,2,3]
-        self.y = 5
+if __name__ == '__main__':
+    # Example use case
+    @frozen
+    class data():
+        def __init__(self):
+            self.x = [1,2,3]
+            self.y = 5
 
-x = data()
-y = data()
-print(x.x)
-print(x.z)  # Raises error
-breakpoint()
+    x = data()
+    y = data()
+    x.y = 6
+    x.z = 6  # Raises error
+    breakpoint()
