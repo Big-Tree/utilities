@@ -82,4 +82,5 @@ class MyTime():
         series.plot(grid=True, marker='', ylabel='Seconds', xlabel='Lap')
         plt.savefig(f'/home/will/Documents/period_transformer/code/stuff/timing/{self.name}',
                     bbox_inches='tight')
+        plt.close()
 
